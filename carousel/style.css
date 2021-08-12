@@ -85,3 +85,35 @@ span.active:before {
 .indicators > span.active {
   opacity: 1;
 }
+
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  display: none;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal form {
+  background: white;
+  padding: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid magenta;
+}
+
+.modal form input {
+  display: inline-block;
+  width: 100%;
+  padding: 1.5em 2em;
+  margin: 0.5em 0;
+}

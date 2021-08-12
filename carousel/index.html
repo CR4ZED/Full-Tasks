@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- add new slide -->
+    <button id="add" class="add">add new</button>
     <div class="carousel" id="carousel">
       <!-- imgs -->
       <div id="imgs" class="imgs">
@@ -34,6 +36,14 @@
         <span></span>
         <span></span>
       </div>
+    </div>
+
+    <!-- modal -->
+    <div id="modal" class="modal">
+      <form id="modal-form">
+        <input type="text" placeholder="add img url here" id="imgUrl" />
+        <input type="submit" value="add slide" id="addNew" class="btn" />
+      </form>
     </div>
     <script src="./app.js"></script>
   </body>
