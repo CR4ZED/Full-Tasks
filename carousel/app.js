@@ -26,7 +26,7 @@ function prevImg() {
 
   if (currActiveImg === imgs[0]) {
     imgs[imgs.length - 1].classList.add("active");
-    spans[indicators.length - 1].classList.add("active");
+    spans[spans.length - 1].classList.add("active");
   } else {
     currActiveImg.previousElementSibling.classList.add("active");
     currActiveSpan.previousElementSibling.classList.add("active");
