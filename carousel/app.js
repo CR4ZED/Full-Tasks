@@ -46,13 +46,15 @@ function addNewImg(e) {
   e.preventDefault();
   modal.classList.add("show");
   const newImg = imgUrl.value;
-  const img = document.createElement("img");
-  img.setAttribute("src", newImg);
-  const span = document.createElement("span");
+  if (newImg) {
+    const img = document.createElement("img");
+    img.setAttribute("src", newImg);
+    const span = document.createElement("span");
 
-  slides.appendChild(img);
-  indicators.appendChild(span);
-  imgUrl.value = "";
+    slides.appendChild(img);
+    indicators.appendChild(span);
+    imgUrl.value = "";
+  }
   modal.classList.remove("show");
 }
 
