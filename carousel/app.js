@@ -50,7 +50,7 @@ function addNewImg(e) {
     const img = document.createElement("img");
     img.setAttribute("src", newImg);
     const span = document.createElement("span");
-
+    span.classList.add("dot");
     slides.appendChild(img);
     indicators.appendChild(span);
     imgUrl.value = "";
