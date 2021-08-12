@@ -68,10 +68,19 @@ function showModal() {
   modal.classList.add("show");
 }
 
-setInterval(nextImg, 5000);
+function setCurrentImg(e) {
+  if (e.target.classList.contains("dot")) {
+    getCurrentObjects();
+    let imgIndex = Array.from(spans).indexOf(e.target);
+    imgs[imgIndex].classList.add("active");
+    e.target.classList.add("active");
+    // imgs[]
+  }
+}
 
 next.addEventListener("click", nextImg);
 prev.addEventListener("click", prevImg);
 add.addEventListener("click", showModal);
 addNew.addEventListener("click", addNewImg);
 modal.addEventListener("click", hideModal);
+indicators.addEventListener("click", setCurrentImg);
