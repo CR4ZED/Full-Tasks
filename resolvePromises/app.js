@@ -35,4 +35,4 @@ let promise4 = generatePromise("success p4", 3000);
 
 resolver([promise1, promise2, promise3, promise4]).then((data) => {
   console.log(data);
-}); //[success p1,success p2]
+});
