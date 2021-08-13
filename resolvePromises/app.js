@@ -1,39 +1,38 @@
-function generatePromise(data) {
-  return new Promise((resolve, reject) => {
-    resolve(`success ${data}`);
-    // setTimeout(() => resolve(`success ${data}`), delay);
-  });
+function generatePromise(data, delay) {
+  return new Promise((resolve) => setTimeout(resolve, delay, data));
 }
 
-async function resolvePromises(promises) {
-  let result = [];
-  for (const promise of promises) {
-    try {
-      let data = await Promise.race([
-        promise.then(
-          (data) =>
-            new Promise((resolve, reject) =>
-              setTimeout(() => resolve(data), Math.floor(Math.random() * 10000))
-            )
-        ),
-        new Promise((resolve, reject) => {
-          setTimeout(() => reject("rejected"), 5000);
-        }),
-      ]);
-      console.log(data);
-      result.push(data);
-    } catch (err) {
-      console.log(err);
-    }
+function checkTimer(promise, delay) {
+  return Promise.race([
+    promise,
+    new Promise((resolve, reject) =>
+      setTimeout(() => reject("rejected"), 5000 - delay)
+    ),
+  ]);
+}
+
+async function resolver(promises) {
+  let res = [];
+  for (let promise of promises) {
+    let now = performance.now();
+    setTimeout(() => {
+      checkTimer(promise, (now - start) * 1000)
+        .then((data) => {
+          console.log(data);
+          res.push(data);
+        })
+        .catch((err) => console.log("failed"));
+    });
   }
-  return result;
+  // return res;
 }
+let start = performance.now();
+// console.log(start);
+let promise1 = generatePromise("success p1", 5000);
+let promise2 = generatePromise("success p2", 2000);
+let promise3 = generatePromise("success p3", 5000);
+let promise4 = generatePromise("success p4", 3000);
 
-let promise1 = generatePromise("p1");
-let promise2 = generatePromise("p2");
-let promise3 = generatePromise("p3");
-let promise4 = generatePromise("p4");
-
-resolvePromises([promise1, promise2, promise3, promise4]).then((data) => {
+resolver([promise1, promise2, promise3, promise4]).then((data) => {
   console.log(data);
-});
+}); //[success p1,success p2]
