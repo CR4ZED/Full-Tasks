@@ -25,6 +25,6 @@ let promises = [
 
 test("Promises which resolve/reject in 5s", () => {
   resolver(promises).then((data) => {
-    expect(data.length()).toBe(4);
+    expect(data).toBe(["success p2", "success p3", "success p6", "success p7"]);
   });
 });
