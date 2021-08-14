@@ -47,7 +47,6 @@ resolver([promise1, promise2, promise3, promise4]);
 // });
 // setTimeout(() => {
 //   if (!data) {
-//     delete promise4
 //     console.log("timeout");
 //     throw new Error('timeout')
 //   }
