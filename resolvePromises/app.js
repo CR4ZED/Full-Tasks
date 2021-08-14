@@ -21,20 +21,6 @@ function checkTimer(promise) {
 async function resolver(promises) {
   let res = [];
   for (let promise of promises) {
-    // try {
-    //   let data = await checkTimer(promise);
-    //   res.push(data);
-    //   console.log(res);
-    // } catch (err) {
-    //   console.log(`ERROR: ${err}`);
-    // }
-    // checkTimer(promise)
-    //   .then((data) => {
-    //     console.log(data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(`ERROR: ${err}`);
-    //   });
     res.push(checkTimer(promise));
   }
 
@@ -67,15 +53,5 @@ resolver([
   console.log(res);
 });
 console.log("");
-// });
-// let data = "";
-// promise4.then((res) => {
-//   data = res;
-//   console.log(data)
-// });
-// setTimeout(() => {
-//   if (!data) {
-//     console.log("timeout");
-//     throw new Error('timeout')
-//   }
-// }, 5000);
+
+module.exports = { resolver, generatePromise };
