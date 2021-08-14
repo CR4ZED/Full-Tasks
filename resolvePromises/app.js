@@ -49,9 +49,14 @@ resolver([
   promise7,
   promise8,
   promise9,
-]).then((res) => {
-  console.log(res);
-});
+])
+  .then((res) => {
+    // console.log(res);
+    return res;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 console.log("");
 
 module.exports = { resolver, generatePromise };
