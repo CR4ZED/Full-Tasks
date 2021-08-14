@@ -18,27 +18,55 @@ function checkTimer(promise) {
   });
 }
 
-function resolver(promises) {
+async function resolver(promises) {
   let res = [];
   for (let promise of promises) {
-    checkTimer(promise)
-      .then((data) => {
-        console.log(data);
-        res.push(data);
-      })
-      .catch((err) => {
-        console.log(`err: ${err}`);
-      });
+    // try {
+    //   let data = await checkTimer(promise);
+    //   res.push(data);
+    //   console.log(res);
+    // } catch (err) {
+    //   console.log(`ERROR: ${err}`);
+    // }
+    // checkTimer(promise)
+    //   .then((data) => {
+    //     console.log(data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(`ERROR: ${err}`);
+    //   });
+    res.push(checkTimer(promise));
   }
-  return res;
+
+  return (await Promise.allSettled(res))
+    .filter((promise) => promise.status === "fulfilled")
+    .map((promise) => promise.value);
 }
 
 let promise1 = generatePromise("success p1", 6000);
 let promise2 = generatePromise("success p2", 2000);
 let promise3 = generatePromise("success p3", 5000);
 let promise4 = generatePromise("success p4", 20000);
+let promise5 = generatePromise("success p5", 6000);
+let promise6 = generatePromise("success p6", 1000);
+let promise7 = generatePromise("success p7", 500);
+let promise8 = generatePromise("success p8", 6000);
+let promise9 = generatePromise("success p9", 6000);
 
-resolver([promise1, promise2, promise3, promise4]);
+resolver([
+  promise1,
+  promise2,
+  promise3,
+  promise4,
+  promise5,
+  promise6,
+  promise7,
+  promise8,
+  promise9,
+]).then((res) => {
+  console.log(res);
+});
+console.log("");
 // });
 // let data = "";
 // promise4.then((res) => {
