@@ -29,3 +29,16 @@ test('should return ["success p5","success p6"]', () => {
     })
     .catch((err) => {});
 });
+
+let promise7 = generatePromise("success p7", 10000);
+let promise8 = generatePromise("success p7", 14000);
+let promise9 = generatePromise("success p7", 6000);
+
+//case 3
+test("should return []", () => {
+  resolver([promise7, promise8, promise9])
+    .then((data) => {
+      expect(data).toBe([]);
+    })
+    .catch((err) => {});
+});
