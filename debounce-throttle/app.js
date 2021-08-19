@@ -1,11 +1,11 @@
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
+// const btn1 = document.getElementById("btn1");
+// const btn2 = document.getElementById("btn2");
 
-const name1 = document.getElementById("name1");
-const name2 = document.getElementById("name2");
+// const name1 = document.getElementById("name1");
+// const name2 = document.getElementById("name2");
 
-const btn3 = document.getElementById("btn3");
-const btn4 = document.getElementById("btn4");
+// const btn3 = document.getElementById("btn3");
+// const btn4 = document.getElementById("btn4");
 
 function debounce(func, delay, args) {
   let id;
@@ -26,35 +26,55 @@ function throttle(func, delay) {
   };
 }
 
-function onClick() {
-  console.log("clicked");
-}
+const debounced = debounce(() => console.log("debounced....."), 1000);
+debounced();
+debounced();
+debounced();
+debounced();
+debounced();
+debounced();
+debounced();
+debounced();
 
-function validate(input) {
-  let pattern = /^[a-z]+$/;
-  if (pattern.test(input.value)) {
-    input.classList.remove("invalid");
-    input.classList.add("valid");
-  } else {
-    input.classList.remove("valid");
-    input.classList.add("invalid");
-  }
-}
+const throttled = throttle(() => console.log("throttled......"), 1000);
+throttled();
+throttled();
+throttled();
+throttled();
+throttled();
+throttled();
+throttled();
+throttled();
 
-function normalClick() {
-  console.log("normal click");
-}
+// function onClick() {
+//   console.log("clicked");
+// }
 
-let debouncedOnClick = debounce(onClick, 2000);
-let debouncedValidate = debounce(validate, 500, name2);
+// function validate(input) {
+//   let pattern = /^[a-z]+$/;
+//   if (pattern.test(input.value)) {
+//     input.classList.remove("invalid");
+//     input.classList.add("valid");
+//   } else {
+//     input.classList.remove("valid");
+//     input.classList.add("invalid");
+//   }
+// }
 
-let throttleClick = throttle(normalClick, 2000);
+// function normalClick() {
+//   console.log("normal click");
+// }
 
-btn1.addEventListener("click", onClick);
-btn2.addEventListener("click", debouncedOnClick);
+// let debouncedOnClick = debounce(onClick, 2000);
+// let debouncedValidate = debounce(validate, 500, name2);
 
-name1.addEventListener("keyup", () => validate(name1));
-name2.addEventListener("keyup", debouncedValidate);
+// let throttleClick = throttle(normalClick, 2000);
 
-btn3.addEventListener("click", normalClick);
-btn4.addEventListener("click", throttleClick);
+// btn1.addEventListener("click", onClick);
+// btn2.addEventListener("click", debouncedOnClick);
+
+// name1.addEventListener("keyup", () => validate(name1));
+// name2.addEventListener("keyup", debouncedValidate);
+
+// btn3.addEventListener("click", normalClick);
+// btn4.addEventListener("click", throttleClick);
