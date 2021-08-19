@@ -19,32 +19,12 @@ function throttle(func, delay) {
   let id;
   return () => {
     if (id) return;
-    func();
     id = setTimeout(() => {
       id = undefined;
     }, delay);
+    return func();
   };
 }
-
-const debounced = debounce(() => console.log("debounced....."), 1000);
-debounced();
-debounced();
-debounced();
-debounced();
-debounced();
-debounced();
-debounced();
-debounced();
-
-const throttled = throttle(() => console.log("throttled......"), 1000);
-throttled();
-throttled();
-throttled();
-throttled();
-throttled();
-throttled();
-throttled();
-throttled();
 
 // function onClick() {
 //   console.log("clicked");
@@ -78,3 +58,5 @@ throttled();
 
 // btn3.addEventListener("click", normalClick);
 // btn4.addEventListener("click", throttleClick);
+
+module.exports = { debounce, throttle };
