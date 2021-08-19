@@ -1,4 +1,3 @@
-const { afterAll } = require("jest-circus");
 const { resolver, generatePromise } = require("./app");
 
 //case1
