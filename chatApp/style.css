@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.chatbox {
+  height: 400px;
+  width: 450px;
+  border: 5px solid magenta;
+  padding: 0.5em;
+  position: relative;
+}
+
+.chat {
+  height: 90%;
+  position: relative;
+  /* overflow-y: scroll; */
+}
+.messages {
+  list-style: none;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+.messages li {
+  margin: 1em 0;
+}
+
+.sendMessage {
+  display: flex;
+}
+.sendMessage input[type="text"] {
+  flex: 1;
+}
