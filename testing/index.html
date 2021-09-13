@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .grandParent {
+        background: #ff0000;
+        height: 400px;
+        width: 100%;
+        padding: 1em;
+      }
+      .parent {
+        background: green;
+        height: 200px;
+        width: 100%;
+        padding: 1em;
+      }
+      .child {
+        background: blue;
+        height: 100px;
+        width: 100px;
+        bottom: 0;
+        left: 50%;
+        z-index: 99;
+        /* transform: translateX(-50%); */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grandParent">
+      <div class="parent">
+        <div class="child"></div>
+      </div>
+    </div>
+
+    <script>
+      const child = document.querySelector(".child");
+      const parent = document.querySelector(".parent");
+      const grandParent = document.querySelector(".grandParent");
+
+      function childClick(e) {
+        console.log("child clicked");
+      }
+      function parentClick(e) {
+        console.log("parent clicked");
+      }
+      function grandParentClick(e) {
+        console.log("grand parent clicked");
+      }
+      child.addEventListener("click", childClick);
+      parent.addEventListener("click", parentClick);
+      grandParent.addEventListener("click", grandParentClick);
+    </script>
+  </body>
+</html>

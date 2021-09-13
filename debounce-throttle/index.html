@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        outline: none;
+      }
+      .valid {
+        border: 2px solid green;
+      }
+      .invalid {
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input type="text" name="name1" id="name1" placeholder="no debounce" />
+      <input type="text" name="name2" id="name2" placeholder="with debounce" />
+    </form>
+    <br /><br />
+    <button id="btn1">onClick</button>
+    <button id="btn2">deouncedOnClick</button>
+    <br /><br />
+    <button id="btn3">no throttle</button>
+    <button id="btn4">throttle</button>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- add new slide -->
+    <button id="add" class="add">add new</button>
+    <div class="carousel" id="carousel">
+      <!-- imgs -->
+      <div id="imgs" class="imgs">
+        <img
+          src="https://source.unsplash.com/1600x900/?nature"
+          alt=""
+          class="active"
+        />
+        <img src="https://source.unsplash.com/1600x900/?technology" alt="" />
+        <img src="https://source.unsplash.com/1600x900/?food" alt="" />
+        <img src="https://source.unsplash.com/1600x900/?animal" alt="" />
+        <img src="https://source.unsplash.com/1600x900/?sports" alt="" />
+      </div>
+      <!-- control -->
+      <div class="controls">
+        <button class="prev" id="prev">prev</button>
+        <button class="next" id="next">next</button>
+      </div>
+      <!-- indicators -->
+      <div class="indicators">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+
+    <!-- modal -->
+    <div id="modal" class="modal">
+      <form id="modal-form">
+        <input type="text" placeholder="add img url here" id="imgUrl" />
+        <input type="submit" value="add slide" id="addNew" class="btn" />
+      </form>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
